@@ -71,9 +71,37 @@
         display: block;
         margin-top: 1em;
       }
+
+      a {
+        color: rgb(218, 52, 142);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      *[data-audio] {
+        cursor: pointer;
+      }
+
+      *[data-audio]:hover {
+        text-decoration: underline;
+      }
     </style>
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function (e) {
+        var scWidget = SC.Widget(document.querySelector('#soundcloud-iframe'));
+        Array.prototype.forEach.call(document.querySelectorAll('[data-audio]'), function (element) {
+          element.onclick = function () {
+            scWidget.seekTo(element.getAttribute('data-audio')*1000);
+          };
+        });
+      });
+    </script>
   </head>
   <body>
     <div id="content">
@@ -83,31 +111,34 @@
       </div>
       <p id="date-and-author">By Bobby Richter - April 8, 2016</p>
       <div id="audio-content">
-        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/257881835&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>
+        <iframe id="soundcloud-iframe" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/257881835&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>
       </div>
       <div id="text-content">
         <p></p>
         <p>Back in march, I sat down with Ricardo Vazquez to talk about his passion for practicing design in the open. Before our interview, I caught him noodling with a guitar while I did a sound-check and encouraged him to play more. With talent and grace characteristic of Ricardo, he switched into performance-mode, and gave us a great intro.</p>
 
-        <h4>The &quot;Burden of Design&quot;</h4>
-        <p>Lorem ipsum dolor sit amet, fugit maiorum in pro, labores praesent no vel. Epicuri convenire pro ex, est primis persius ancillae ex, at laoreet consequat vel. Ea sed offendit antiopam. Soleat fabulas mnesarchum at cum, nam et corpora delicata, repudiandae deterruisset cu eam. Prima urbanitas deseruisse vix an, ex nusquam urbanitas torquatos mel.</p>
+        <h4 data-audio="87">The &quot;Burden of Design&quot;</h4>
+        <p>Many teams within Mozilla rely on the creativity and skill of the design team Ricardo belongs to. For years, they've honed their craft, not just creating world-class designs, but intentely listening to the people that require their expertise. However, Ricardo is among a group of advocates for giving agency to content creators wherever possible, and their most recent endeavor is a content management system done with in the modern, open, empathetic style of Mozilla's design team.</p>
 
-        <div class="quote">Design is bound by decision-making.</div>
+        <div class="quote" data-audio="122">We can't always predict when new content can come out and the immediacy of that and the context in which it will be shared.</div>
 
-        <p>In sed semper laboramus forensibus, id quis omnis eligendi per. Zril noster vocent ei mei. Aeque verterem id duo, id scaevola recteque has. Te mei postea legendos. Mel ad epicurei conclusionemque, vix dolorum disputando ei. Erat saepe adipiscing vel at.</p>
+        <p>Ricardo talks lovingly about not removing himself from the equation of design and content creation, but providing a space for anybody to be empowered by the thoughtful work of his team.</p>
+
         <div class="repeat-portrait" style="background-image: url('img/ricardo-vazquez/25218668030_c546dc27d2_o.png');"></div>
-        <h4>Designing in the Open</h4>
-        <p>No decore causae civibus sea, quodsi theophrastus vis ut. Usu nostro apeirian cu, ea pro veniam feugait suscipit. Sit te etiam epicuri mandamus, te sit veritus honestatis. Est suas placerat necessitatibus ne, ea usu elit torquatos. Sed et eros iudicabit, volumus splendide vix et. Has simul iudico te, qui fugit comprehensam ad.</p>
+        <h4 data-audio="277">Designing in the Open</h4>
+        <p>Ricardo takes openness to heart, and, inspired by other projects, tries to put himself in front of a community of designers&mdash;professional, aspiring, or otherwise.</p>
 
-        <div class="quote">Design is bound by decision-making.</div>
+        <div class="quote" data-audio="281">The practice of design as a whole is shaded in secrecy.</div>
 
-        <p>Nihil fastidii vivendum te cum, cu vim ubique delectus elaboraret, qui imperdiet elaboraret et. Te dicit veritus percipit est. Et vis latine vituperatoribus, ut eum dicam minimum voluptatum, probo democritum contentiones an nec. Ex eum cetero antiopam. Scripta nonumes et mei, regione detracto pri at, stet liber aliquando sit et. Nec laudem ancillae nominavi ex. Has ex posse labores molestiae.</p>
+        <p><a href="https://www.youtube.com/watch?v=okcBcDOkeLw">Hour of Design</a></p>
         
         <h4>Removing the Training Wheels</h4>
+        <p>Eam illum audiam albucius id. Nam in everti melius saperet, quas alienum posidonium sea ad.</p>
+        <div class="quote">Design is bound by decision-making.</div>
         <p>Eam illum audiam albucius id. Nam in everti melius saperet, quas alienum posidonium sea ad. Quodsi invenire ullamcorper usu ut, amet noster volumus per no. Sit ei ullum nihil meliore. Latine blandit usu cu, at novum persius dissentiunt mel. Vis adhuc affert placerat no, hinc suscipit vix ne, option persius mel cu.</p>
       </div>
       <div>
-        See what Ricardo is up to on <a href="https://twitter.com/iamrvazquez">Twitter</a>, and <a href="https://github.com/vazquez">Github</a>.
+        See what Ricardo is up to on <a href="https://twitter.com/iamrvazquez">Twitter</a>, <a href="https://www.youtube.com/channel/UC9MJ2wGfJ_7mbLN6rXjWztA">YouTube</a>, and <a href="https://github.com/vazquez">Github</a>.
       </div>
       <img class="picasso" src="img/ricardo-vazquez/25218676710_85f56c4d4a_o.png">
     </div>
