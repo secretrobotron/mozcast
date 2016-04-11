@@ -2,12 +2,12 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  font: 24pt 'Fira Sans';
   color: black;
 }
 
 body {
   background-image: linear-gradient(to bottom, #EEE0E5 0%,rgba(255,255,255,1) 1000px);
+  font: 24pt 'Fira Sans';
 }
 
 #container {
@@ -32,33 +32,6 @@ body {
 #content {
   min-width: 700px;
   padding: 2em;
-}
-
-@media (max-width: 1200px) {
-  #container {
-    display: block;
-    margin: 0 auto;
-    width: 700px;
-  }
-
-  #container > div {
-    flex-grow: unset;
-    flex-shrink: unset;
-    flex-basis: unset;
-  }
-
-  #side {
-    float: right;
-  }
-
-  #header-image {
-    width: 300px;
-  }
-
-  #content {
-    padding: 0;
-  }
-
 }
 
 #text-content {
@@ -118,4 +91,81 @@ a:hover {
 
 *[data-audio]:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 1400px) {
+  #container {
+    display: block;
+    margin: 0 auto;
+    width: 700px;
+  }
+
+  #container > div {
+    flex-grow: unset;
+    flex-shrink: unset;
+    flex-basis: unset;
+  }
+
+  #side {
+    float: right;
+  }
+
+  #header-image {
+    width: 300px;
+  }
+
+  #content {
+    padding: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font: 18pt 'Fira Sans';
+  }
+
+  #container {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  #container > div {
+    flex-grow: unset;
+    flex-shrink: unset;
+    flex-basis: unset;
+  }
+
+  #side {
+    width: 100%;
+  }
+
+  #header-image {
+    width: 250px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #content {
+    padding: 0 10px;
+    min-width: auto;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .repeat-portrait {
+    height: 150px;
+  }
+
+  #header {
+    width: 100%;
+  }
+
+  #header h1 {
+    font-size: 24pt;
+  }
+
+  #header h3 {
+    font-size: 18pt;
+  }
 }
