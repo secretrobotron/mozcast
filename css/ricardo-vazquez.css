@@ -1,0 +1,121 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font: 24pt 'Fira Sans';
+  color: black;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #EEE0E5 0%,rgba(255,255,255,1) 1000px);
+}
+
+#container {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+#container > div {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+#header {
+  font-family: 'Oswald';
+}
+
+#header-image {
+  width: 100%;
+}
+
+#content {
+  min-width: 700px;
+  padding: 2em;
+}
+
+@media (max-width: 1200px) {
+  #container {
+    display: block;
+    margin: 0 auto;
+    width: 700px;
+  }
+
+  #container > div {
+    flex-grow: unset;
+    flex-shrink: unset;
+    flex-basis: unset;
+  }
+
+  #side {
+    float: right;
+  }
+
+  #header-image {
+    width: 300px;
+  }
+
+  #content {
+    padding: 0;
+  }
+
+}
+
+#text-content {
+  font-size: .75em;
+}
+
+#date-and-author {
+  font-size: .5em;
+}
+
+.quote {
+  border-left: 5px solid black;
+  padding-left: 1em;
+  margin-left: .5em;
+  font-size: 1.25em;
+}
+
+.quote:before {
+  content: open-quote;
+}
+
+.quote:after {
+  content: close-quote;
+}
+
+#header h1, #header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.repeat-portrait {
+  width: 100%;
+  height: 200px;
+  background-size: contain;
+  background-position: 50%;
+}
+
+#picasso {
+  width: 250px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 1em;
+}
+
+a {
+  color: rgb(218, 52, 142);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+*[data-audio] {
+  cursor: pointer;
+}
+
+*[data-audio]:hover {
+  text-decoration: underline;
+}
