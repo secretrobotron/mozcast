@@ -10,6 +10,19 @@ body {
   font: 24pt 'Fira Sans';
 }
 
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.fadein {
+  opacity: 0;
+  animation: fadeIn 1s ease-in;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+}
+
 #container {
   display: flex;
   flex: 0 0 auto;
@@ -27,19 +40,33 @@ body {
 
 #header-image {
   width: 100%;
+  animation-delay: 1s;
+  animation-duration: 1s;
 }
 
 #content {
-  min-width: 700px;
+  min-width: 750px;
   padding: 2em;
+}
+
+#content::after {
+  content: ' ';
+  display: block;
+  height: 5em;
+}
+
+#audio-content {
+  animation-delay: .45s;
 }
 
 #text-content {
   font-size: .75em;
+  animation-delay: .5s;
 }
 
 #date-and-author {
   font-size: .5em;
+  animation-delay: .4s;
 }
 
 .quote {
@@ -62,18 +89,110 @@ body {
   margin-bottom: 0;
 }
 
+#header h1 {
+  animation-delay: .3s;
+}
+
+#header h3 {
+  animation-delay: .35s;
+}
+
 .repeat-portrait {
   width: 100%;
   height: 200px;
   background-size: contain;
   background-position: 50%;
+  position: relative;
 }
 
-#picasso {
-  width: 250px;
-  margin: 0 auto;
-  display: block;
-  margin-top: 1em;
+.repeat-portrait::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(255,255,255,1) 0.001%, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 99.999%);
+}
+
+#next {
+  text-align: center;
+  display: flex;
+}
+
+#next .title {
+  position: absolute;
+  width: 100%;
+  font-size: .7em;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#next > a {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+
+  display: inline-block;
+  /*width: 220px;*/
+  cursor: pointer;
+  vertical-align: top;
+  text-decoration: none;
+  color: black;
+}
+
+#next > a:hover .title {
+  opacity: 1;
+}
+
+#next .image-container {
+  height: 120px;
+  overflow: hidden;
+  position: relative;
+}
+
+
+#next .next-item {
+  margin: 0 5px;
+}
+
+#next .next-item:first-child {
+  margin-left: 0;
+}
+
+#next .next-item:last-child {
+  margin-right: 0;
+}
+
+#next .image-container .fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color .2s;
+}
+
+#next > .next-item:hover .image-container .fade {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#next .image {
+  width: 100%;
+  height: 120px;
+  background-size: cover;
+  background-position: 50%;
+  transform: scale(1);
+  transition: transform .4s;
+}
+
+#next > .next-item:hover .image {
+  transform: scale(1.1);
 }
 
 a {
